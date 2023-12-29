@@ -1,19 +1,36 @@
-const createProduct = (req, res) => {
-  res.send("createProduct");
+const { StatusCodes } = require("http-status-codes");
+const Product = require("../models/Product");
+
+const createProduct = async(req, res) => {
+  const {
+    name,
+    price,
+    description,
+    image,
+    category,
+    company,
+    colors,
+    featured,
+    freeShipping,
+    inventory,
+  } = req.body;
+  const product = await Product.create(req.body)
+  res.status(StatusCodes.CREATED).json({product});
+
 };
-const getAllProducts = (req, res) => {
+const getAllProducts = async(req, res) => {
   res.send("getAllProducts");
 };
-const getSingleProduct = (req, res) => {
+const getSingleProduct = async(req, res) => {
   res.send("getSingleProduct");
 };
-const updateProduct = (req, res) => {
+const updateProduct = async(req, res) => {
   res.send("updateProduct");
 };
-const deleteProduct = (req, res) => {
+const deleteProduct = async(req, res) => {
   res.send("deleteProduct");
 };
-const uploadImage = (req, res) => {
+const uploadImage = async(req, res) => {
   res.send("uploadImage");
 };
 

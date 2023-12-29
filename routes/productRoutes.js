@@ -14,19 +14,18 @@ const {
 const router = express.Router();
 
 router
-  .route("/createProduct")
-  .post(authenticate, authorizePermissions, createProduct);
-router.route("/getAllProducts").get(getAllProducts);
-router
-  .route("/updateProduct")
-  .patch(authenticate, authorizePermissions, updateProduct);
-router
-  .route("/deleteProduct")
-  .delete(authenticate, authorizePermissions, deleteProduct);
-router
+  .route("/")
+  .post([authenticate, authorizePermissions("admin")], createProduct)
+  .get(getAllProducts); 
+router    
   .route("/uploadImage")
-  .post(authenticate, authorizePermissions, uploadImage);
+  .post([authenticate, authorizePermissions("admin")], uploadImage);
 
-router.route("/getSingleProduct/:id").get(getSingleProduct);
+router
+  .route("/:id")
+  .get(getSingleProduct)
+  .delete([authenticate, authorizePermissions("admin")], deleteProduct)
+  .patch([authenticate, authorizePermissions("admin")], updateProduct);
+router;
 
 module.exports = router;
