@@ -1,6 +1,8 @@
 const { StatusCodes } = require("http-status-codes");
 const Product = require("../models/Product");
 const CustomAPIError = require("../errors");
+const Path = require("path");
+const path = require("path");
 
 const createProduct = async (req, res) => {
   req.body.user = req.user.userId;
@@ -44,12 +46,32 @@ const deleteProduct = async (req, res) => {
     throw new CustomAPIError.NotFoundError(
       `Product with id of ${id} does not exist`
     );
-    await product.remove()
-  res.status(StatusCodes.GONE).json({ msg:'Success! Product remove' });
+  await product.remove();
+  res.status(StatusCodes.GONE).json({ msg: "Success! Product remove" });
 };
 
 const uploadImage = async (req, res) => {
-  res.send("uploadImage");
+  // First install the express-fileupload
+  if (!req.files) throw new CustomAPIError.BadRequestError(`No file uploaded`);
+  const productImage = req.files.image;
+  if (!productImage.mimetype.startsWith('image')) {
+    throw new CustomAPIError.BadRequestError(`please upload image`);
+  }
+  const maxSize = 1024 * 1024;
+
+  if (productImage.size > maxSize) {
+    throw new CustomAPIError.BadRequestError(
+      `image size should be less than 1mb`
+    );
+  }
+
+  const imagePath = path.join(
+    __dirname,
+    "../public/uploads/" + `${productImage.name}`
+  );
+  await productImage.mv(imagePath);
+  res.status(StatusCodes.OK).json({ image: `/uploads/${productImage.name}` });
+  
 };
 
 module.exports = {
