@@ -28,7 +28,7 @@ const ReviewSchema = mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: "Product",
       required: true,
-    },
+    },   
   },
   {
     timestamps: true,
@@ -36,5 +36,5 @@ const ReviewSchema = mongoose.Schema(
 );
 
 ReviewSchema.index({ product: 1, user: 1 }, { unique: true });
-
+// ReviewSchema.post()
 module.exports = mongoose.model("reviews", ReviewSchema);

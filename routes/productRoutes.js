@@ -11,13 +11,14 @@ const {
   authenticate,
   authorizePermissions,
 } = require("../middleware/authentication");
+const { getSingleProductReviews } = require("../controllers/reviewController");
 const router = express.Router();
 
 router
   .route("/")
   .post([authenticate, authorizePermissions("admin")], createProduct)
-  .get(getAllProducts); 
-router    
+  .get(getAllProducts);
+router
   .route("/uploadImage")
   .post([authenticate, authorizePermissions("admin")], uploadImage);
 
@@ -26,6 +27,8 @@ router
   .get(getSingleProduct)
   .delete([authenticate, authorizePermissions("admin")], deleteProduct)
   .patch([authenticate, authorizePermissions("admin")], updateProduct);
-router;
+
+  
+router.route("/:id/reviews").get(getSingleProductReviews);
 
 module.exports = router;
