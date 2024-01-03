@@ -39,7 +39,7 @@ const ProductSchema = new mongoose.Schema(
     },
     colors: {
       type: [String],
-      default:['#222'],
+      default: ["#222"],
       required: true,
     },
     featured: {
@@ -67,7 +67,15 @@ const ProductSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true }
-);
+  { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } }
+)
 
-module.exports= mongoose.model('Product', ProductSchema)
+ProductSchema.virtual("Review", {
+  ref: "reviews",
+  localField: "_id",
+  foreignField: "product",
+  justOne: false,
+  match:{rating:5}
+});
+
+module.exports = mongoose.model("Product", ProductSchema);

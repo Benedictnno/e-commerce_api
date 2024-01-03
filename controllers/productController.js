@@ -1,7 +1,6 @@
 const { StatusCodes } = require("http-status-codes");
 const Product = require("../models/Product");
 const CustomAPIError = require("../errors");
-const Path = require("path");
 const path = require("path");
 
 const createProduct = async (req, res) => {
@@ -17,7 +16,7 @@ const getAllProducts = async (req, res) => {
 
 const getSingleProduct = async (req, res) => {
   const { id } = req.params;
-  const product = await Product.findOne({ _id: id });
+  const product = await Product.findOne({ _id: id }).populate("Review");
   if (!product)
     throw new CustomAPIError.NotFoundError(
       `Product with id of ${id} does not exist`
@@ -54,7 +53,7 @@ const uploadImage = async (req, res) => {
   // First install the express-fileupload
   if (!req.files) throw new CustomAPIError.BadRequestError(`No file uploaded`);
   const productImage = req.files.image;
-  if (!productImage.mimetype.startsWith('image')) {
+  if (!productImage.mimetype.startsWith("image")) {
     throw new CustomAPIError.BadRequestError(`please upload image`);
   }
   const maxSize = 1024 * 1024;
@@ -71,7 +70,6 @@ const uploadImage = async (req, res) => {
   );
   await productImage.mv(imagePath);
   res.status(StatusCodes.OK).json({ image: `/uploads/${productImage.name}` });
-  
 };
 
 module.exports = {

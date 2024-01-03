@@ -26,4 +26,8 @@ const authorizePermissions = (...roles) => {
   };
 };
 
+const userAuthorization = (req,res,next)=>{
+  
+}
+
 module.exports = { authorizePermissions, authenticate };
