@@ -9,8 +9,10 @@ const authRouter = require("./routes/authRoutes");
 const userRouter = require("./routes/userRoutes");
 const productRouter= require('./routes/productRoutes')
 const reviewRouter= require('./routes/reviewRoutes')
+const OrderRouter = require('./routes/orderRoutes');
 const cookieParser = require("cookie-parser")
 const fileUpload= require('express-fileupload')
+
 const app = express();
 
 app.use(morgan("tiny"));
