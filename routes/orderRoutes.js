@@ -4,6 +4,7 @@ const {
   createOrder,
   getCurrentUseOrders,
   updateOrder,
+  getSingleOrder,
 } = require("../controllers/OrderController");
 const {
   authenticate,
@@ -13,9 +14,12 @@ const router = express.Router();
 
 router
   .route("/")
-  .get([authenticate], getAllOrders)
+  .get([authenticate, authorizePermissions("admin")], getAllOrders)
   .post([authenticate], createOrder);
 router.route("/showAllMyOrders").get([authenticate], getCurrentUseOrders);
-router.route("/:id").patch([authenticate], updateOrder);
+router
+  .route("/:id")
+  .patch([authenticate], updateOrder)
+  .get(authenticate, getSingleOrder);
 
 module.exports = router;
