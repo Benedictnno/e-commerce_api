@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const SingleCartItemSchema = mongoose.Schema({
+const SingleOrderItemSchema = mongoose.Schema({
   name: { type: String, required: true },
   image: { type: String, required: true },
   price: { type: Number, required: true },
@@ -24,11 +24,11 @@ const OrderSchema = mongoose.Schema(
     },
     subtotal: {
       type: Number,
-      // required: [true, "please enter total fee"],
+      required: [true, "please enter total fee"],
     },
     total: {
       type: Number,
-      // required: [true, "please enter total fee"],
+      required: [true, "please enter total fee"],
     },
     status: {
       type: String,
@@ -40,12 +40,12 @@ const OrderSchema = mongoose.Schema(
       ref: "Users",
       required: true,
     },
-    cartItems: [SingleCartItemSchema],
+    orderItems: [SingleOrderItemSchema],
     clientSecret: {
       type: String,
-      // required: [true, "please enter client Secret"],
+      required: [true, "please enter client Secret"],
     },
-    paymentId: {
+    paymentIntentId: {
       type: String,
       // required: [true, "please enter paymentId "],
     },
