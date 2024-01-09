@@ -24,11 +24,11 @@ const OrderSchema = mongoose.Schema(
     },
     subtotal: {
       type: Number,
-      required: [true, "please enter total fee"],
+      // required: [true, "please enter total fee"],
     },
     total: {
       type: Number,
-      required: [true, "please enter total fee"],
+      // required: [true, "please enter total fee"],
     },
     status: {
       type: String,
@@ -43,11 +43,11 @@ const OrderSchema = mongoose.Schema(
     cartItems: [SingleCartItemSchema],
     clientSecret: {
       type: String,
-      required: [true, "please enter client Secret"],
+      // required: [true, "please enter client Secret"],
     },
     paymentId: {
       type: String,
-      required: [true, "please enter paymentId "],
+      // required: [true, "please enter paymentId "],
     },
   },
   { timestamps: true }

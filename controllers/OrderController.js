@@ -2,6 +2,7 @@ const Product = require("../models/Product");
 const Order = require("../models/Order");
 const CustomError = require("../errors");
 const checkPermissions = require("../utils/checkPermissions");
+const { StatusCodes } = require("http-status-codes");
 
 const getAllOrders = async (req, res) => {
   res.send("getAllOrders");
@@ -21,27 +22,38 @@ const createOrder = async (req, res) => {
     throw new CustomError.BadRequestError("Now cart item");
   }
   if (!tax || !shippingFee) {
-    throw new CustomError.BadRequestError("Please provide tax and shipping fee");
-  }
-
-
-  const isValidProduct = await Product.findOne({ _id: productId });
-  if (!isValidProduct) {
-    throw new CustomError.NotFoundError(`No product with id ${productId}`);
-  }
-  const alreadySubmitted = await Order.findOne({
-    product: productId,
-    user: req.user.userId,
-  });
-  if (alreadySubmitted) {
     throw new CustomError.BadRequestError(
-      `Already submitted a Order for this product`
+      "Please provide tax and shipping fee"
     );
+  }
+
+  let orderItems = [];
+  let subtotal = 0;
+
+  for (const item of cartItems) {
+    const dbProduct = await Product.findOne({ _id: item.product });
+    if (!dbProduct) {
+      throw new CustomError.NotFoundError(
+        `No product found with id : ${item.product}`
+      );
+    }
+    const { name, price, image, _id } = dbProduct;
+
+    const singleOrderItem = {
+      amount: item.amount,
+      name,
+      price,
+      image,
+      product: id,
+    };
+
+    orderItems= [...orderItems,singleOrderItem]
+    subtotal += item.amount * price
   }
   req.body.user = req.user.userId;
   const order = await Order.create(req.body);
 
-  res.status(StatusCodes.CREATED).json({ order });
+  res.status(StatusCodes.CREATED).json({ msg: "done" });
 };
 
 const updateOrder = async (req, res) => {
