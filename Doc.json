@@ -16,9 +16,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/auth/logout",
+							"raw": "https://sparrow-x.onrender.com/auth/logout",
 							"host": [
-								"http://localhost:5000/auth"
+								"https://sparrow-x.onrender.com/auth"
 							],
 							"path": [
 								"logout"
@@ -42,9 +42,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000//auth/login",
+							"raw": "https://sparrow-x.onrender.com//auth/login",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"auth",
@@ -69,9 +69,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/auth/register",
+							"raw": "https://sparrow-x.onrender.com/auth/register",
 							"host": [
-								"http://localhost:5000/auth"
+								"https://sparrow-x.onrender.com/auth"
 							],
 							"path": [
 								"register"
@@ -92,9 +92,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/users",
+							"raw": "https://sparrow-x.onrender.com/users",
 							"host": [
-								"http://localhost:5000/users"
+								"https://sparrow-x.onrender.com/users"
 							]
 						}
 					},
@@ -106,9 +106,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/users/6582de08dd20d0a0376bfa6d",
+							"raw": "https://sparrow-x.onrender.com/users/6582de08dd20d0a0376bfa6d",
 							"host": [
-								"http://localhost:5000/users"
+								"https://sparrow-x.onrender.com/users"
 							],
 							"path": [
 								"6582de08dd20d0a0376bfa6d"
@@ -123,9 +123,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/users/show-me",
+							"raw": "https://sparrow-x.onrender.com/users/show-me",
 							"host": [
-								"http://localhost:5000/users"
+								"https://sparrow-x.onrender.com/users"
 							],
 							"path": [
 								"show-me"
@@ -149,9 +149,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/users/updateUser",
+							"raw": "https://sparrow-x.onrender.com/users/updateUser",
 							"host": [
-								"http://localhost:5000/users"
+								"https://sparrow-x.onrender.com/users"
 							],
 							"path": [
 								"updateUser"
@@ -175,9 +175,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/users/updateUserPassword",
+							"raw": "https://sparrow-x.onrender.com/users/updateUserPassword",
 							"host": [
-								"http://localhost:5000/users"
+								"https://sparrow-x.onrender.com/users"
 							],
 							"path": [
 								"updateUserPassword"
@@ -206,9 +206,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000//products/",
+							"raw": "https://sparrow-x.onrender.com//products/",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"products",
@@ -224,9 +224,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//products/",
+							"raw": "https://sparrow-x.onrender.com//products/",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"products",
@@ -251,9 +251,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000//products/658ff7c342a7ead62067e4d1",
+							"raw": "https://sparrow-x.onrender.com//products/658ff7c342a7ead62067e4d1",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"products",
@@ -269,9 +269,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//products/6591892fde9acddef897827b",
+							"raw": "https://sparrow-x.onrender.com//products/6591892fde9acddef897827b",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"products",
@@ -297,9 +297,9 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:5000//products/uploadImage",
+							"raw": "https://sparrow-x.onrender.com//products/uploadImage",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"products",
@@ -315,9 +315,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//products/659835de0605407468085b8a",
+							"raw": "https://sparrow-x.onrender.com//products/659835de0605407468085b8a",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"products",
@@ -338,9 +338,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//reviews",
+							"raw": "https://sparrow-x.onrender.com//reviews",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"reviews"
@@ -364,9 +364,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000//reviews",
+							"raw": "https://sparrow-x.onrender.com//reviews",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"reviews"
@@ -381,9 +381,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//reviews/658ff7c342a7ead62067e4d1",
+							"raw": "https://sparrow-x.onrender.com//reviews/658ff7c342a7ead62067e4d1",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"reviews",
@@ -399,9 +399,9 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//reviews/kllllk",
+							"raw": "https://sparrow-x.onrender.com//reviews/kllllk",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"reviews",
@@ -417,9 +417,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//reviews/659837620605407468085b97",
+							"raw": "https://sparrow-x.onrender.com//reviews/659837620605407468085b97",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"reviews",
@@ -435,9 +435,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//products/659835de0605407468085b8a/reviews",
+							"raw": "https://sparrow-x.onrender.com//products/659835de0605407468085b8a/reviews",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"products",
@@ -459,9 +459,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//orders",
+							"raw": "https://sparrow-x.onrender.com//orders",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"orders"
@@ -476,9 +476,9 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//orders",
+							"raw": "https://sparrow-x.onrender.com//orders",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"orders"
@@ -493,9 +493,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//orders/showAllMyOrders",
+							"raw": "https://sparrow-x.onrender.com//orders/showAllMyOrders",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"orders",
@@ -519,9 +519,9 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000//orders/updateOrder",
+							"raw": "https://sparrow-x.onrender.com//orders/updateOrder",
 							"host": [
-								"http://localhost:5000/"
+								"https://sparrow-x.onrender.com/"
 							],
 							"path": [
 								"orders",
