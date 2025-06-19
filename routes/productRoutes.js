@@ -18,9 +18,13 @@ router
   .route("/")
   .post([authenticate, authorizePermissions("admin")], createProduct)
   .get(getAllProducts);
-router
-  .route("/uploadImage")
-  .post([authenticate, authorizePermissions("admin")], uploadImage);
+// router
+//   .route("/uploadImage")
+//   .post(
+//   //   [authenticate, authorizePermissions("admin")]
+  
+//   // , 
+//   uploadImage);
 
 router
   .route("/:id")
@@ -28,7 +32,6 @@ router
   .delete([authenticate, authorizePermissions("admin")], deleteProduct)
   .patch([authenticate, authorizePermissions("admin")], updateProduct);
 
-  
 router.route("/:id/reviews").get(getSingleProductReviews);
 
 module.exports = router;

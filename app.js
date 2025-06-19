@@ -27,15 +27,18 @@ app.use(
     max: 60,
   })
 );
-app.use(helmet())
-app.use(xss())
-app.use(cors())
-app.use(ExpressMongoSanitize())
+app.use(helmet());
+app.use(xss());
+app.use(cors());
+app.use(ExpressMongoSanitize());
 
-// app.use(morgan("tiny"));
+app.use(morgan("tiny"));
+
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_PASS));
-app.use(fileUpload());
+
+app.use(fileUpload({ useTempFiles: true, tempFileDir: "/tmp/" }));
+
 app.use(express.static("./public"));
 
 // app.get("/", (req, res) => {
