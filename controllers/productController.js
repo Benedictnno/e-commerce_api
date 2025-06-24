@@ -2,9 +2,8 @@ const { StatusCodes } = require("http-status-codes");
 const Product = require("../models/Product");
 const CustomAPIError = require("../errors");
 const uploadImages = require("../utils/uploadImages");
+const cloudinary = require("cloudinary").v2;
 
-
-// const v2 = cloudinary;
 
 const createProduct = async (req, res) => {
   req.body.user = req.user.userId;
@@ -49,7 +48,6 @@ const updateProduct = async (req, res) => {
   res.status(StatusCodes.OK).json({ product });
 };
 
-// testing upload product on cloudinary
 
 const deleteProduct = async (req, res) => {
   const { id } = req.params;
@@ -62,6 +60,42 @@ const deleteProduct = async (req, res) => {
   res.status(StatusCodes.GONE).json({ msg: "Success! Product remove" });
 };
 
+cloudinary.config({
+  cloud_name: "dw9wklkym",
+  secure: true,
+  api_key: process.env.CLOUDNARY_APIKEY,
+  api_secret: process.env.CLOUDNARY_SECRET,
+});
+
+const deleteImages = async (req, res) => {
+  const { public_ids } = req.body;
+
+  if (!public_ids || !Array.isArray(public_ids) || public_ids.length === 0) {
+    throw new CustomAPIError.BadRequestError(
+      "An array of public_ids is required"
+    );
+  }
+
+  try {
+    const deleteResults = await Promise.all(
+      public_ids.map(async (public_id) => {
+        const result = await cloudinary.uploader.destroy(public_id);
+        return {
+          public_id,
+          status: result.result === "ok" ? "deleted" : result.result,
+        };
+      })
+    );
+
+    res.status(200).json({
+      message: "Image deletion process completed",
+      results: deleteResults,
+    });
+  } catch (error) {
+    console.error("Cloudinary Multiple Delete Error:", error);
+    throw new CustomAPIError.InternalServerError("Failed to delete images");
+  }
+};
 
 module.exports = {
   createProduct,
@@ -69,4 +103,5 @@ module.exports = {
   getSingleProduct,
   updateProduct,
   deleteProduct,
+  deleteImages
 };

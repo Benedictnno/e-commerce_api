@@ -18,8 +18,13 @@ const attachCookiesToResponse = ({ res, tokenUser }) => {
   res.cookie("token", token, {
     httpOnly: true,
     expires: new Date(Date.now() + oneDay),
-    secure: process.env.NODE_ENV === "production",
+    // secure: process.env.NODE_ENV === "production",
+    secure: false, // only for localhost
+    // sameSite: None,
+    path: "/",
+    sameSite: 'Lax',
     signed: true,
   });
 };
+
 module.exports = { createJwt, attachCookiesToResponse, isTokenValid };

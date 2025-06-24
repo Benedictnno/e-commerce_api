@@ -5,7 +5,7 @@ const {
   getSingleProduct,
   updateProduct,
   deleteProduct,
-  uploadImage,
+  deleteImages,
 } = require("../controllers/productController");
 const {
   authenticate,
@@ -22,9 +22,12 @@ router
 //   .route("/uploadImage")
 //   .post(
 //   //   [authenticate, authorizePermissions("admin")]
-  
-//   // , 
-//   uploadImage);
+
+// ,
+// uploadImage);
+router
+  .route("/deleteImage")
+  .post([authenticate, authorizePermissions("admin")], deleteImages);
 
 router
   .route("/:id")

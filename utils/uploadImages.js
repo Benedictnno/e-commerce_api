@@ -31,10 +31,10 @@ const uploadImages = async (files) => {
 
   return uploadResults.map((uploadResult) => ({
     
-    Image: cloudinary.url(uploadResult.public_id, {
+    image: cloudinary.url(uploadResult.public_id, {
       fetch_format: "auto",
       quality: "auto",
-      width: 100,
+      width: 500,
       crop: "scale",
     }),
     public_id: uploadResult.public_id,

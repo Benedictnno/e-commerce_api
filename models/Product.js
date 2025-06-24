@@ -23,6 +23,7 @@ const ProductSchema = new mongoose.Schema(
       {
         image: {
           type: String,
+          required: true,
         },
         public_id: {
           type: String,
@@ -35,13 +36,15 @@ const ProductSchema = new mongoose.Schema(
       required: [true, "please provide a category"],
       enum: ["office", "kitchen", "bedroom"],
     },
+
+    
     company: {
       type: String,
       required: [true, "please provide a company"],
-      enum: {
-        values: ["ikea", "liddy", "marcos"],
-        message: "{VALUE} is not supported",
-      },
+      // enum: {
+      //   values: ["ikea", "liddy", "marcos"],
+      //   message: "{VALUE} is not supported",
+      // },
     },
     colors: {
       type: [String],

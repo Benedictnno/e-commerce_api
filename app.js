@@ -29,7 +29,12 @@ app.use(
 );
 app.use(helmet());
 app.use(xss());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://localhost:8888"],
+    credentials: true,
+  })
+);
 app.use(ExpressMongoSanitize());
 
 app.use(morgan("tiny"));
