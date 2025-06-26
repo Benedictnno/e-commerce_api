@@ -31,7 +31,6 @@ const getSingleProduct = async (req, res) => {
     throw new CustomAPIError.NotFoundError(
       `Product with id of ${id} does not exist`
     );
-
   res.status(StatusCodes.OK).json({ product });
 };
 

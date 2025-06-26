@@ -31,13 +31,13 @@ const ProductSchema = new mongoose.Schema(
         },
       },
     ],
+
     category: {
       type: String,
       required: [true, "please provide a category"],
       enum: ["office", "kitchen", "bedroom"],
     },
 
-    
     company: {
       type: String,
       required: [true, "please provide a company"],

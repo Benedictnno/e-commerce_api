@@ -35,6 +35,8 @@ app.use(
     credentials: true,
   })
 );
+
+
 app.use(ExpressMongoSanitize());
 
 app.use(morgan("tiny"));
@@ -45,6 +47,7 @@ app.use(cookieParser(process.env.JWT_PASS));
 app.use(fileUpload({ useTempFiles: true, tempFileDir: "/tmp/" }));
 
 app.use(express.static("./public"));
+
 
 // app.get("/", (req, res) => {
 //   res.send("e-commerce");
